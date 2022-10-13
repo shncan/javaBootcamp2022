@@ -33,7 +33,7 @@ public class Main {
 
 
         EducatorManager educatorManager = new EducatorManager(new JdbcEducatorDao(), loggers);
-        EducatorManager.add(educator);
+        educatorManager.add(educator);
 
         EducatorManager educatorManager1 = new EducatorManager(new HibernateEducatorDao(), loggers);
         educatorManager1.add(educator1);

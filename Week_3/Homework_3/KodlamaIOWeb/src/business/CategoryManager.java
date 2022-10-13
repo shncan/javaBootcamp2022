@@ -17,15 +17,15 @@ public class CategoryManager {
 
     public void add(Category category) throws Exception {
         List<Category> categories =categoryDao.getAllCategories();
-        boolean isThere=false;
-        for(Category category2:categories) {
-            if(category.getCategoryName()==category2.getCategoryName()) {
-                isThere=true;
+        boolean isVar=false;
+        for(Category category1:categories) {
+            if(category.getCategoryName()==category1.getCategoryName()) {
+                isVar=true;
                 break;
             }
         }
 
-        if(!isThere) {
+        if(!isVar) {
             categoryDao.addCategory(category);
             for(Logger logger:loggers) {
                 logger.log(category.getCategoryName()+ " İsimli Kategori Oluşturuldu.");

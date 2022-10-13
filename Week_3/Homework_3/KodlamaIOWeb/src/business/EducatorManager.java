@@ -16,7 +16,7 @@ public class EducatorManager {
         this.loggers=loggers;
     }
 
-    public static void add(Educator educator) {
+    public void add(Educator educator) {
         educatorDao.addEducator(educator);
         for(Logger logger:loggers) {
             logger.log(educator.getEducatorFirstName()+" Eklendi");

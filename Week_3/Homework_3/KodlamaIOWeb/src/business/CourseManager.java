@@ -19,17 +19,17 @@ public class CourseManager {
     public void add(Course course) throws Exception {
 
         List<Course> courses = courseDao.getAllCourses();
-        boolean isThere = false;
-        for(Course course2:courses) {
-            if(course.getCourseName()==course2.getCourseName()) {
-                isThere=true;
+        boolean isVar = false;
+        for(Course course1:courses) {
+            if(course.getCourseName()==course1.getCourseName()) {
+                isVar=true;
                 break;
             }
         }
         if(course.getCoursePrice()<0) {
             throw new Exception("Kurs değeri 0'dan küçük girilemez");
         }
-        else if(!isThere && !(course.getCoursePrice()<0)) {
+        else if(!isVar && !(course.getCoursePrice()<0)) {
             courseDao.addCourse(course);
             for(Logger logger:loggers) {
                 logger.log(course.getCourseName() +" Kursu Eklendi");
